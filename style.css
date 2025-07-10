@@ -1,0 +1,354 @@
+/* Basic Reset & Body Styling */
+:root {
+    --primary-color: #4A90E2; /* A vibrant blue, good for accents and links */
+    --secondary-color: #5C6F80; /* A muted blue-gray, for secondary headings */
+    --accent-color: #7ED321; /* A fresh green, for active states/highlights */
+    --text-color: #333333; /* Dark charcoal for main text, good readability */
+    --background-color: #F5F7FA; /* Light off-white for general background */
+    --sidebar-bg: #2C3E50; /* Darker blue-gray for sidebar background */
+    --sidebar-text: #ECF0F1; /* Light gray for sidebar text */
+    --sidebar-hover: #34495E; /* Slightly lighter dark blue-gray for sidebar hover */
+    --border-color: #DDE1E6; /* Light gray for borders */
+    --code-bg: #EAEFF4; /* Very light blue-gray for code backgrounds */
+    --code-text: #2C3E50; /* Dark blue-gray for code text */
+    --warning-color: #E74C3C; /* A clear red for warnings */
+    --link-hover-color: #357ABD;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container for Sidebar and Main Content */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    min-width: 200px; /* Fixed width for desktop */
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    position: fixed; /* Fixed position */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Scrollable if content overflows */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for mobile */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--sidebar-hover);
+    padding-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.close-btn {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--sidebar-text);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.toc-navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-navigation li {
+    margin-bottom: 10px;
+}
+
+.toc-navigation a {
+    color: var(--sidebar-text);
+    text-decoration: none;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.toc-navigation a:hover,
+.toc-navigation a.active {
+    background-color: var(--sidebar-hover);
+    color: var(--accent-color);
+}
+
+/* Main Content Area */
+.content {
+    margin-left: 280px; /* Offset for fixed sidebar */
+    flex-grow: 1;
+    padding: 20px 40px;
+    max-width: 100vw; /* Limit content width for readability */
+    box-sizing: border-box;
+    flex: 1;
+}
+
+/* Header for Main Content (with hamburger button) */
+.main-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    /* i want to make little transparent background that gives faded style for any text scrolled under it  */
+    /* This will give a faded effect to the header */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Make it look wider rounded edges 3d and like ribbon  */
+    border-radius: 0 0 10px 10px; /* Rounded edges for a ribbon effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 999; /* Ensure it stays above other content */
+}
+
+.main-header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.5em;
+}
+
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2em;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* General Content Styling */
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: var(--text-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code Blocks */
+pre {
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* Horizontal scroll for long lines */
+    margin-bottom: 20px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    background-color: var(--code-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+/* Specific styling for warning messages */
+.warning {
+    background-color: rgba(220, 53, 69, 0.1); /* Light red background */
+    border-left: 5px solid var(--warning-color); /* Red left border */
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    color: var(--warning-color);
+}
+
+.warning strong {
+    color: var(--warning-color);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    /* Removed fixed position to allow sticky footer */
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer ul li {
+    display: inline;
+}
+
+/* Guide Article Steps */
+.guide-article {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.guide-article:nth-child(odd) {
+    background-color: #f9f9f9; /* Light gray for odd steps */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Popped-up 3D effect */
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.guide-article:nth-child(even) {
+    background-color: #ffffff; /* White for even steps */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Punched-down 3D effect */
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 250px;
+        min-width: 250px;
+        transform: translateX(-100%); /* Hide sidebar by default on smaller screens */
+        /* Added for transparency on mobile */
+        background-color: rgba(52, 58, 64, 0.9); /* Semi-transparent sidebar background */
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+    }
+
+    .content {
+        margin-left: 0; /* No offset when sidebar is hidden */
+        padding: 15px 20px;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu on smaller screens */
+    }
+
+    .close-btn {
+        display: block; /* Show close button in sidebar on smaller screens */
+    }
+
+    .main-header h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    .content {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-header{
+        position: sticky;
+        top: 0;
+        background-color: var(--background-color);
+    }
+    .main-header h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .sidebar {
+        width: 90%; /* Full width sidebar on very small screens */
+        min-width: unset;
+    }
+}
