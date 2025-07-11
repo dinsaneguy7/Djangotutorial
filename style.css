@@ -13,7 +13,6 @@
     --code-text: #2C3E50; /* Dark blue-gray for code text */
     --warning-color: #E74C3C; /* A clear red for warnings */
     --link-hover-color: #357ABD;
-    --footer-background: #357ABD;
 }
 
 html {
@@ -224,7 +223,7 @@ code {
 
 /* Footer Styling */
 footer {
-    background-color: var(--footer-background);
+    background-color: var(--sidebar-bg);
     color: var(--sidebar-text);
     text-align: center;
     padding: 20px;
@@ -245,6 +244,9 @@ footer a:hover {
     text-decoration: underline;
 }
 
+#footer-index{
+    margin-left: 260px;
+}
 footer ul {
     list-style: none;
     padding: 0;
