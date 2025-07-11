@@ -229,7 +229,7 @@ footer {
     text-align: center;
     padding: 20px;
     border-top: 1px solid var(--border-color);
-    margin-left: 260 px;
+    margin-left: 260px;
     /* Removed fixed position to allow sticky footer */
 }
 
