@@ -351,4 +351,15 @@ footer ul li {
         width: 90%; /* Full width sidebar on very small screens */
         min-width: unset;
     }
+
+    footer {
+        padding: 10px;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
