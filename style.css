@@ -228,7 +228,7 @@ footer {
     text-align: center;
     padding: 20px;
     border-top: 1px solid var(--border-color);
-    margin-left: 260 px;
+    margin-left: 260px;
     /* Removed fixed position to allow sticky footer */
 }
 
@@ -244,6 +244,9 @@ footer a:hover {
     text-decoration: underline;
 }
 
+#footer-index{
+    margin-left: 260px;
+}
 footer ul {
     list-style: none;
     padding: 0;
